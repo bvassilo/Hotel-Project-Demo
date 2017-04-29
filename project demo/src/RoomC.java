@@ -1,7 +1,7 @@
 
 public class RoomC extends Room{
-	protected int minCapacity;
-	protected int minDuration;
+	private int minCapacity;
+	private int minDuration;
 	//constructor
 	public RoomC(int roomCode, int maxCapacity, double pricePerPerson,int minCapacity,int minDuration) {
 		super(roomCode, maxCapacity, pricePerPerson);
@@ -11,8 +11,8 @@ public class RoomC extends Room{
 	//methods
 	public boolean addReservation(Reservation j){
 		for(int k=j.getArrival();k<=j.getDuration()+j.getArrival();k++)
-			if (this.getAvailability()[k]==null && this.getMaxCapacity()<=j.getPerson() && j.getPerson()>=minCapacity && j.getDuration()>=minDuration){
-				this.getAvailability()[k]=j;
+			if (this.getAvailability(k)==null && this.getMaxCapacity()<=j.getPerson() && j.getPerson()>=minCapacity && j.getDuration()>=minDuration){
+				this.setAvailability(j,k);
 				j.setHotelRoom(this);
 				return true;
 			}

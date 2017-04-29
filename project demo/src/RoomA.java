@@ -10,14 +10,14 @@ public class RoomA extends Room {
 	public double pricing(){
 		double roomEarnings = 0;
 		for (int i=1;i<31;i++){
-			if (this.getAvailability()[i]==null){
+			if (this.getAvailability(i)==null){
 				roomEarnings += 0;
 			}
 			else{
-				roomEarnings += this.getPricePerDay()*getAvailability()[i].getDuration();
+				roomEarnings += this.getPricePerDay()*getAvailability(i).getDuration();
 			}
 		}
-		System.out.printf("This month up until now this room is going to pay up",roomEarnings,"money");
+		System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 		return roomEarnings;
 		
 	}

@@ -9,8 +9,8 @@ public class RoomD extends Room {
 	//methods
 	public boolean addReservation(Reservation j){
 		for(int k = j.getArrival();k <= j.getDuration()+j.getArrival(); k++)
-			if (this.getAvailability()[k]==null && this.getMaxCapacity()<=j.getPerson() && j.getDuration()<= maxDuration){
-				this.getAvailability()[k]=j;
+			if (this.getAvailability(k)==null && this.getMaxCapacity()<=j.getPerson() && j.getDuration()<= maxDuration){
+				this.setAvailability(j,k);
 				j.setHotelRoom(this);
 				return true;
 			}

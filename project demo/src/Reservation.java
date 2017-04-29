@@ -1,7 +1,7 @@
 import java.util.Random;
 public class Reservation {
 	private String clientName;
-	private static int reservationCode;
+	private int reservationCode;
 	private int arrival;
 	private int duration;
 	private int person;
@@ -13,7 +13,7 @@ public class Reservation {
 		this.setDuration(duration);
 		this.setPerson(person);
 		Random rand = new Random();
-		this.setReservationCode(rand.nextInt(1500)+1);
+		this.setReservationCode(rand.nextInt(1800)+1);
 	}
 	//Getters Setters
 	public String getClientName() {
@@ -26,7 +26,7 @@ public class Reservation {
 		return reservationCode;
 	}
 	public void setReservationCode(int reservationCode) {
-		Reservation.reservationCode = reservationCode;
+		this.reservationCode = reservationCode;
 	}
 	public int getArrival() {
 		return arrival;
