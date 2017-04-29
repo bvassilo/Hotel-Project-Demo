@@ -3,12 +3,12 @@ public class Room {
 	private int maxCapacity;
 	private Reservation[] availability = new Reservation[31];
 	private double pricePerPerson;
+	private Reservation nr = new Reservation("",0,0,0);
 	//constructor
 	public Room(int roomCode,int maxCapacity, double pricePerPerson){
 		this.setRoomCode(roomCode);
 		this.setMaxCapacity(maxCapacity);
 		this.pricePerPerson = pricePerPerson;
-		Reservation nr = new Reservation("",0,0,0);
 		for (int i=1;i<=30;i++){//TODO SEE IF THIS WORS
 			setAvailability(nr,i); 
 		}
@@ -52,12 +52,12 @@ public class Room {
 			double completenessQuota = 0;
 			int completeness = 0;
 			for (int i=1;i<31;i++){
-				if (getAvailability(i) != null){
+				if (getAvailability(i) != nr){
 					completeness += 1;
 				}
 			}
 			completenessQuota = (completeness/30)*100;
-			System.out.println("The completeness quota of the room for the month is"+completenessQuota+"%");
+			System.out.println("The completeness quota of the room for the month is "+completenessQuota+" %");
 			return completenessQuota ;
 		}
 	//getters setters

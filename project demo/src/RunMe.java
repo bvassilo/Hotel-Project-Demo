@@ -24,8 +24,6 @@ public class RunMe {
 			case 1/*"Next day"*/:
 				count++;
 				System.out.println("Contiued to day "+count);
-				//command = null;
-				//scann.close();
 				break;
 			case 2/*"Add Reservation"*/:
 				System.out.println("Please, give your name,arrival,duration,how many person and optionally the room code you want to be added in this order,\nif you don't want a specific room press 0,\nthe available room codes are \n101-110 type Room\n201-210 type RoomA\n301-310 type RoomB\n401-410 type RoomC\n501-510 type RoomD\n601-610 type RoomE");
@@ -37,35 +35,25 @@ public class RunMe {
 				else{
 					ourHotel.addReservation(nR);
 				}
-				//command = null;
-				//scann.close();
 				break;
 			case 3/*"Cancel Reservation"*/:
 				System.out.println("Give the reservation code given to you with your Reservation");
 				ourHotel.cancelReservation(scann.nextInt());
-				//command = null;
-				//scann.close();
 				break;
 			case 4/*"Show Reservations"*/:
 				System.out.println("Reservation Code | Client Name | Room Code");
-				for(int counter=0;counter<=ourHotel.getReservationArray().size();counter++){
+				for(int counter=1;counter<=ourHotel.getReservationArray().size();counter++){
 					System.out.println(+ourHotel.getReservationArray().get(counter).getReservationCode()+ " | "+ourHotel.getReservationArray().get(counter).getClientName()+ " | "+ourHotel.getReservationArray().get(counter).getHotelRoom().getRoomCode());
 				}
-				//command = null;
-				//scann.close();
 				break;
 			case 5/*"Show Rooms"*/:
 				System.out.println("Room Code | Completness | Income");
-				for(int counter=0;counter<=ourHotel.getRoomArray().length;counter++){
+				for(int counter=1;counter<=ourHotel.getRoomArray().length;counter++){
 					System.out.println(+ourHotel.getRoomArray()[counter].getRoomCode()+" | "+ourHotel.getRoomArray()[counter].completenessQuota()+" | "+ourHotel.getRoomArray()[counter].pricing());
 				}
-				//command = null;
-				//scann.close();
 				break;
 			case 6/*"Show Reserrvations Plan"*/:
 				ourHotel.reservationPlan();
-				//command = null;
-				//scann.close();
 				break;
 			case 7/*"Show Income"*/:
 				System.out.println("if you want the income for all the rooms press 0 else type the room code");
@@ -76,11 +64,9 @@ public class RunMe {
 				else{
 					ourHotel.calculateIncome(rC2);
 				}
-				//scann.close();
-				//command = null;
+				
 				break;
 			case 8/*"Terminate"*/:
-				//scann.close();
 				command = 0;
 				break;
 			}

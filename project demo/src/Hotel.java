@@ -137,13 +137,13 @@ public class Hotel {
 				if (roomArray[i].getAvailability(j)!=null){
 					x = '*';
 					if(j==1){
-						System.out.println(+roomArray[i].getRoomCode());						
+						System.out.print(+roomArray[i].getRoomCode()+" ");						
 					}
 					if (j==30){
-						System.out.println(x);
+						System.out.println("  "+x);
 					}
 					else{
-						System.out.print(x);
+						System.out.print("  "+x);
 					}	
 				}
 				else{
