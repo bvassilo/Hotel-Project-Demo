@@ -11,17 +11,17 @@ public class RoomB extends RoomA{
 		double roomEarnings = 0;
 		int count = 1;
 		for (int i=1;i<31;i++){
-			if (this.getAvailability()[i]==null){
+			if (this.getAvailability(i)==null){
 				roomEarnings += 0;
 			}
 			else{
-				roomEarnings += (this.getPricePerDay()*getAvailability()[i].getDuration()) - count * discountPerDay;
+				roomEarnings += (this.getPricePerDay()*getAvailability(i).getDuration()) - count * discountPerDay;
 				if (this.getPricePerDay() >= (this.getPricePerDay()/2)){
 					count++;
 				}
 			}
 		}
-		System.out.printf("This month up until now this room is going to pay up",roomEarnings,"money");
+		System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 		return roomEarnings;
 	}
 	public boolean cancel(int cancelCode){
