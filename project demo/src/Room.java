@@ -9,7 +9,7 @@ public class Room {
 		this.setRoomCode(roomCode);
 		this.setMaxCapacity(maxCapacity);
 		this.pricePerPerson = pricePerPerson;
-		for (int i=1;i<=30;i++){//TODO SEE IF THIS WORS
+		for (int i=0;i<=30;i++){//TODO SEE IF THIS WORS
 			setAvailability(nr,i); 
 		}
 	}
@@ -36,7 +36,7 @@ public class Room {
 					roomEarnings += this.pricePerPerson*getAvailability(i).getPerson();
 				}
 			}
-			System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
+			//System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 			return roomEarnings;
 		}
 	public boolean cancel(int cancelCode){
@@ -57,7 +57,7 @@ public class Room {
 				}
 			}
 			completenessQuota = (completeness/30)*100;
-			System.out.println("The completeness quota of the room for the month is "+completenessQuota+" %");
+			//System.out.println("The completeness quota of the room for the month is "+completenessQuota+" %");
 			return completenessQuota ;
 		}
 	//getters setters
@@ -68,8 +68,13 @@ public class Room {
 		this.roomCode = roomCode;
 	}
 	public Reservation getAvailability(int day) {
-		return availability[day];
+		try{
+			return availability[day];
+		}catch (ArrayIndexOutOfBoundsException aioobe){
+			return null;
+		}
 	}
+	
 	public Reservation[] getAvailabilityArray(){
 		return availability;
 	}

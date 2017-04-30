@@ -20,7 +20,7 @@ public class RoomE extends RoomA{
 					roomEarnings += (this.getPricePerDay()*getAvailability(i).getDuration()); //if completeness is more than 50% the price doubles
 			}
 		}
-		System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
+		//System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 		return roomEarnings;
 		
 	}

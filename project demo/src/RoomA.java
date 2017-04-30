@@ -17,7 +17,7 @@ public class RoomA extends Room {
 				roomEarnings += this.getPricePerDay()*getAvailability(i).getDuration();
 			}
 		}
-		System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
+		//System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 		return roomEarnings;
 		
 	}

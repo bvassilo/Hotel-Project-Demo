@@ -21,7 +21,7 @@ public class RoomB extends RoomA{
 				}
 			}
 		}
-		System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
+		//System.out.println("This month up until now this room is going to pay up"+roomEarnings+"money");
 		return roomEarnings;
 	}
 	public boolean cancel(int cancelCode){
