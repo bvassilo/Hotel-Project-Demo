@@ -42,16 +42,30 @@ public class RunMe {
 				break;
 			case 4/*"Show Reservations"*/:
 				System.out.println("Reservation Code | Client Name | Room Code");
-				for(int counter=1;counter<=ourHotel.getReservationArray().size();counter++){
-					System.out.println(+ourHotel.getReservationArray().get(counter).getReservationCode()+ " | "+ourHotel.getReservationArray().get(counter).getClientName()+ " | "+ourHotel.getReservationArray().get(counter).getHotelRoom().getRoomCode());
-				}
-				break;
+				//try{
+					for(int counter=1;counter<=ourHotel.getReservationArray().size();counter++){
+						try{
+							System.out.println(""+ourHotel.getReservationArray().get(counter).getReservationCode()+ " | "+ourHotel.getReservationArray().get(counter).getClientName()+ " | "+ourHotel.getReservationArray().get(counter).getHotelRoom().getRoomCode());
+						}catch(IndexOutOfBoundsException ioobe){
+							System.out.println(ioobe.toString());
+						}
+					}
+					break;
+				//}catch (NullPointerException npe){
+					//System.out.println(npe.toString());
+					//break;
+				//}catch (IndexOutOfBoundsException ioobe){
+					//break;
+					//System.out.println(ioobe.toString());
+				//}
 			case 5/*"Show Rooms"*/:
+				try{
 				System.out.println("Room Code | Completness | Income");
 				for(int counter=1;counter<=ourHotel.getRoomArray().length;counter++){
-					System.out.println(+ourHotel.getRoomArray()[counter].getRoomCode()+" | "+ourHotel.getRoomArray()[counter].completenessQuota()+" | "+ourHotel.getRoomArray()[counter].pricing());
+					System.out.println("   "+ourHotel.getRoomArray()[counter].getRoomCode()+"    |    "+ourHotel.getRoomArray()[counter].completenessQuota()+"      |    "+ourHotel.getRoomArray()[counter].pricing());
 				}
 				break;
+				}catch(NullPointerException npe){break;}
 			case 6/*"Show Reserrvations Plan"*/:
 				ourHotel.reservationPlan();
 				break;
